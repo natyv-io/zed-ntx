@@ -13,6 +13,14 @@
 (func_decl name: (identifier) @function)
 (go_type) @type
 
+; The `<%...%>` raw-code escape's own sentinel (2026-09-02, matching real
+; click-through feedback from the VS Code side of this same editor-support
+; pass: with no capture here, '<%'/'%>' carry no visual signal at all,
+; making the markup/code boundary invisible). `raw_code_block`'s own two
+; literal tokens, captured directly rather than via `child_text` or
+; anything content-shaped.
+(raw_code_block "<%" @punctuation.special "%>" @punctuation.special)
+
 ; Deliberately no capture for `child_text` -- per Quinn's own real
 ; click-through feedback during Stage 3 (VS Code), a widget's own child
 ; text (e.g. a Button's "Save") reads as plain author-facing content, not
