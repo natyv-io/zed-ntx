@@ -8,7 +8,7 @@ repository = "https://github.com/natyv-io/zed-ntx"
 
 [grammars.ntx]
 repository = "https://github.com/natyv-io/tree-sitter-ntx"
-commit = "83c0fc0d3caba4c6eab662bfed75240e1c215898"
+commit = "10e2a20c65cec47ef9ceba2090e8e56d6e472b98"
 
 [grammars.ntss]
 repository = "https://github.com/natyv-io/tree-sitter-ntss"

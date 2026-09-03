@@ -21,3 +21,14 @@
 
 ((go_body) @injection.content
  (#set! injection.language "go"))
+
+; `<%...%>` raw-code escape (2026-09-02 editor-support pass): the real Go
+; code living between spliced tags gets the same treatment -- `raw_code_text`
+; is `tree-sitter-ntx`'s own version of `go_chunk`/`go_body`'s opaque-span
+; role, just interleaved with real `tag_element` nodes instead of appearing
+; as one contiguous block. Nested tags inside a raw-code block already get
+; real highlighting from this file's own `(tag_name) @tag` etc. rules below
+; (the grammar recurses `tag_element` there exactly as it does anywhere
+; else), so only the code fragments themselves need injecting here.
+((raw_code_text) @injection.content
+ (#set! injection.language "go"))
